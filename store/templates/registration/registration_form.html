@@ -3,12 +3,23 @@
 
 {% block title %}{% trans "Register for an account" %}{% endblock %}
 
-{% block content %}
-<form method="post" action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="{% trans 'Submit' %}" />
-</form>
+{% block body %}
+<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 loginbox">
+        <div class="panel-info panel">
+            <div class="panel-heading">
+                <div class="panel-title">
+                   Login
+                </div>
+                <div style="padding-top: 30px" class="panel-body">
+                    <form method="post" action="" class="form-horizontal" role="form">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="{% trans 'Submit' %}" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 

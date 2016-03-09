@@ -3,8 +3,20 @@
 
 {% block title %}{% trans "Activation email sent" %}{% endblock %}
 
-{% block content %}
-<p>{% trans "Please check your email to complete the registration process." %}</p>
+{% block body %}
+    <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 loginbox">
+        <div class="panel-info panel">
+            <div class="panel-heading">
+                <div class="panel-title">
+
+                </div>
+                <div style="padding-top: 30px" class="panel-body">
+                    <p>{% trans "Please check your email to complete the registration process." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
 
 

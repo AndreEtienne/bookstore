@@ -6,14 +6,16 @@
 
 {% load bootstrap_themes %}
 
-
 {% bootstrap_styles theme='simplex' type='min.css' %}
 
+{% load compress %}
 {%  block bootstrap3_extra_head %}
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
+    {% compress css %}
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    {% endcompress %}
 {% endblock %}
-{% block boostrap3_title %}
+{% block bootstrap3_title %}
    {% block title %}Welcome to the Store{% endblock %}
 {% endblock %}
 

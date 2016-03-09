@@ -3,6 +3,17 @@
 
 {% block title %}{% trans "Registration is closed" %}{% endblock %}
 
-{% block content %}
-<p>{% trans "Sorry, but registration is closed at this moment. Come back later." %}</p>
+{% block body %}
+<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 loginbox">
+        <div class="panel-info panel">
+            <div class="panel-heading">
+                <div class="panel-title">
+
+                </div>
+                <div style="padding-top: 30px" class="panel-body">
+                    <p>{% trans "Sorry, but registration is closed at this moment. Come back later." %}.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
