@@ -1,38 +1,66 @@
+{% extends 'bootstrap3/bootstrap3.html' %}
+
 {% load staticfiles %}
 
 {% load bootstrap3 %}
-
 {% load bootstrap_themes %}
-
-{% extdens 'bootstrap3/bootstrap3.html' %}
-
 
 
 {% bootstrap_styles theme='simplex' type='min.css' %}
 
 {%  block bootstrap3_extra_head %}
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Welcome to the Store{% endblock %}</title>
-</head>
-<body background="{% static 'base/img/logo11.png' %}">
-{% block content %}
-    {%  if request.user.is_authenticated %}
-        <h4>
-        Welcome, {% if request.user.first_name %}
-            {{ request.user.first_name }}
-            {% else %}
-            {{ request.user.username }}
-            {% endif %} <a href="{% url 'auth_logout' %}">logout</a>
-        </h4>
-    {% else %}
-        <h4>Welcome hallo, to booksite! Would you like to <a href="{% url 'auth_login' %}">log in?</a></h4>
-    {% endif %}
-    Welcome to the Store! There are {{ count }} books in stock. User location {{ request.session.location }}
+{% block boostrap3_title %}
+   {% block title %}Welcome to the Store{% endblock %}
 {% endblock %}
-</body>
-</html>
+
+{% block bootstrap3_content %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" >
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="{% url 'index' %}" class="navbar-brand">Book store</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="hvr-curl-top-right"><a href="{% url 'index' %}">Home</a></li>
+                         <li class="hvr-curl-top-right"><a href="#about">About</a></li>
+                         <li class="hvr-curl-top-right"><a href="#contact">Contact</a></li>
+                    </ul>
+                    <div class="navbar-form pull-right">
+                        {%  if request.user.is_authenticated %}
+                            Welcome, {% if request.user.first_name %}
+                                {{ request.user.first_name }}
+                                {% else %}
+                                {{ request.user.username }}
+                                {% endif %} <a href="{% url 'auth_logout' %}">logout</a>
+                        {% else %}
+                            Welcome hallo, to booksite!<a href="{% url 'auth_login' %}">log in?</a> or <a href="{% url 'registration_register' %}">Register</a>
+                        {% endif %}
+                    </div>
+                </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+    <img src="{% static 'base/img/logo11.png' %}" class="bg">
+        <div class="parallax">
+            {% block body %}
+                <div class="col-md-8 col-sm-12 col-offset-2 maincontent">
+                    Welcome to our Store
+
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+    <div class="row text-center navbar footer">
+        <div class="col-md-12">
+            <p>2016 Book Store</p>
+        </div>
+    </div>
+{% endblock %}
