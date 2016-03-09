@@ -1,4 +1,18 @@
 {% load staticfiles %}
+
+{% load bootstrap3 %}
+
+{% load bootstrap_themes %}
+
+{% extdens 'bootstrap3/bootstrap3.html' %}
+
+
+
+{% bootstrap_styles theme='simplex' type='min.css' %}
+
+{%  block bootstrap3_extra_head %}
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
+{% endblock %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
