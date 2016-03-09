@@ -3,6 +3,7 @@
 {% load staticfiles %}
 
 {% load bootstrap3 %}
+
 {% load bootstrap_themes %}
 
 
@@ -50,12 +51,14 @@
     <div class="container-fluid">
     <img src="{% static 'base/img/logo11.png' %}" class="bg">
         <div class="parallax">
+        <div class="row">
             {% block body %}
-                <div class="col-md-8 col-sm-12 col-offset-2 maincontent">
+                <div class="col-md-8 col-sm-12 col-md-offset-2 maincontent">
                     Welcome to our Store
 
                 </div>
             {% endblock %}
+        </div>
         </div>
     </div>
     <div class="row text-center navbar footer">
