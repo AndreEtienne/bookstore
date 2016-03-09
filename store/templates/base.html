@@ -1,23 +1,24 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}Welcome to the Store{% endblock %}</title>
 </head>
-<body>
+<body background="{% static 'base/img/logo11.png' %}">
 {% block content %}
-{%  if request.user.is_authenticated %}
-    <h4>
-    Welcome, {% if request.user.first_name %}
-        {{ request.user.first_name }}
-        {% else %}
-        {{ request.user.username }}
-        {% endif %} <a href="{% url 'auth_logout' %}">logout</a>
-    </h4>
-{% else %}
-    <h4>Welcome hallo, to booksite! Would you like to <a href="{% url 'auth_login' %}">log in?</a></h4>
-{% endif %}
-Welcome to the Store! There are {{ count }} books in stock. User location {{ request.session.location }}
+    {%  if request.user.is_authenticated %}
+        <h4>
+        Welcome, {% if request.user.first_name %}
+            {{ request.user.first_name }}
+            {% else %}
+            {{ request.user.username }}
+            {% endif %} <a href="{% url 'auth_logout' %}">logout</a>
+        </h4>
+    {% else %}
+        <h4>Welcome hallo, to booksite! Would you like to <a href="{% url 'auth_login' %}">log in?</a></h4>
+    {% endif %}
+    Welcome to the Store! There are {{ count }} books in stock. User location {{ request.session.location }}
 {% endblock %}
 </body>
 </html>
