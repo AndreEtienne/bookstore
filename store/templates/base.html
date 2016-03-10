@@ -56,8 +56,16 @@
         <div class="row">
             {% block body %}
                 <div class="col-md-8 col-sm-12 col-md-offset-2 maincontent">
-                    Welcome to our Store
-
+                   <div class="text-center"><h3>Welcome to our Store</h3></div>
+                    {% for book in books %}
+                        <a href="{% url 'book_details' book.id %}">
+                            <div class="storefront_book_display">
+                                <img style="width: 100px; height: 140px;" src="{% static 'base/img/empty_cover.png' %}">
+                                <span class="storefront_book_title">{{ book.title }}</span>
+                                <span class="storefront_book_author">{{ book.author }}</span>
+                            </div>
+                        </a>
+                    {% endfor %}
                 </div>
             {% endblock %}
         </div>
