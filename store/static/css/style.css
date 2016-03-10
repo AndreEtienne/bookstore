@@ -144,6 +144,8 @@ img.bg{
 }
 
 .detail_book_img{
+    height: 200px;
+    width: 120px;
     margin-bottom: 20px;
 }
 
