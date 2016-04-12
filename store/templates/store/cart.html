@@ -12,7 +12,7 @@
                 <span class="title">{{ item.book.title }}</span> by {{ item.book.author.first_name }}{{ item.book.author.last_name }}
             </div>
             <div class="cart_price">
-                <span class="cart_quantity">{{ item.quantitiy }} x $<span class="cart_value">{{ item.book.price }} </span></span>
+                <span class="cart_quantity">{{ item.quantity }} x $<span class="cart_value">{{ item.book.price }} </span></span>
                 Quantity: <a href="{% url 'add_to_cart' item.book.id %}">[+]</a>/ <a href="{% url 'remove_from_cart' item.book.id %}">[-]</a>
             </div>
 

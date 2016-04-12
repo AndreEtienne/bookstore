@@ -132,3 +132,5 @@ fabric.properties
 #SQLite Databases
 
 *.sqlite3
+
+static/
