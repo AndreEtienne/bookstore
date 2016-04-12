@@ -35,6 +35,9 @@
                         <li class="hvr-curl-top-right"><a href="{% url 'index' %}">Home</a></li>
                          <li class="hvr-curl-top-right"><a href="#about">About</a></li>
                          <li class="hvr-curl-top-right"><a href="#contact">Contact</a></li>
+                        {% if request.user.is_authenticated %}
+                            <li class="hvr-curl-top-right"><a href="{% url 'cart' %}">My Shopping Cart</a></li>
+                        {% endif %}
                     </ul>
                     <div class="navbar-form pull-right">
                         {%  if request.user.is_authenticated %}
@@ -65,6 +68,14 @@
                                 <span class="storefront_book_author">{{ book.author }}</span>
                             </div>
                         </a>
+                        {%  if request.user.is_authenticated %}
+                        <span class="storefront_add_to_cart">
+
+
+                            <a href="{% url 'add_to_cart' book.id %}">[Add to Cart]</a>
+
+                        </span>
+                         {% endif %}
                     {% endfor %}
                 </div>
             {% endblock %}
