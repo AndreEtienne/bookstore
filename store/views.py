@@ -39,7 +39,7 @@ def add_to_cart(request, book_id):
                     user=request.user
                 )
                 cart.save()
-                cart.add_to_cart(book_id)
+            cart.add_to_cart(book_id)
         return redirect('cart')
     else:
         return redirect('index')
@@ -73,7 +73,7 @@ def cart(request):
             'total': total,
             'count': count,
         }
-        return render(request, 'store/cart', context)
+        return render(request, 'store/cart.html', context)
     else:
         return redirect('index')
 

@@ -68,14 +68,12 @@
                                 <span class="storefront_book_author">{{ book.author }}</span>
                             </div>
                         </a>
-                        {%  if request.user.is_authenticated %}
+                         {%  if request.user.is_authenticated %}
                         <span class="storefront_add_to_cart">
-
-
-                            <a href="{% url 'add_to_cart' book.id %}">[Add to Cart]</a>
-
+                        <a href="{% url 'add_to_cart' book.id %}">[Add to Cart]</a>
                         </span>
-                         {% endif %}
+                             {% else %}
+                        {% endif %}
                     {% endfor %}
                 </div>
             {% endblock %}
