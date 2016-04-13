@@ -25,4 +25,7 @@ To take advantage of this store you need to:
     requests-oauthlib==0.6.1
     rjsmin==1.0.12
     six==1.10.0
+    paypalrestsdk==1.11.5
+    
 
+       
